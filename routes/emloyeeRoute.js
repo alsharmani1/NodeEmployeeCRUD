@@ -4,21 +4,28 @@ const Employee = require('../models/Employee');
 
 // Employee list
 router.get('/', (req, res) => {
-    Employee.find((err, items) => {
-        if(!err) {
-            res.render('employeeList', { 
-                list: items
-            }); 
-        } else {
-            console.log('Error retrieving data');
-        } 
-    })
+    try { 
+        Employee.find((err, items) => {
+            if(!err) {
+                res.render('employeeList', { 
+                    title: 'Employee List',
+                    list: items
+                }); 
+            } 
+        });
+    } catch (err) { 
+        res.render('error', {
+            title: "Error Page",
+            message: "There was a problem getting the employee list. Please try again later!"
+        });
+     }
 });
 
 // Employee form
 router.get('/submit', (req, res) => {
     res.render('employeeForm', {
-        item: ""
+        item: "",
+        title: 'Add / Edit Employee',
     }); 
 });
 
@@ -42,7 +49,6 @@ router.post('/submit', async (req, res) => {
              res.json(err)
          }
     } else {
-
         // Update existing record
         try {
             const updated = await Employee.updateOne(
@@ -69,7 +75,7 @@ router.get('/:id', (req, res) => {
     Employee.findById(req.params.id, (err, id) => {
         if(!err) {
             res.render('employeeForm', {
-                title: "Edit Employee",
+                title: "Add / Edit Employee",
                 item: id
             });
         }
@@ -82,7 +88,10 @@ router.get('/delete/:id', async (req, res) => {
         const removed = await Employee.deleteOne({ _id: req.params.id });
         res.redirect('/');
     } catch(err) {
-        res.send('Error while deleting')
+        res.render('error', {
+            title: "Error Page",
+            message: "There was a deleting the employee. Please try again later!"
+        });
     }
 });
 
