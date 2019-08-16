@@ -17,5 +17,5 @@ app.use(employeeRoute);
 // Mongo connect
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true }); 
 
-const PORT = 3000 || process.env.PORT;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT);
