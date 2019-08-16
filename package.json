@@ -1,0 +1,26 @@
+{
+  "name": "nodeemployeelist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alsharmani1/NodeEmployeeCRUD.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alsharmani1/NodeEmployeeCRUD/issues"
+  },
+  "homepage": "https://github.com/alsharmani1/NodeEmployeeCRUD#readme",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.9",
+    "nodemon": "^1.19.1"
+  }
+}
