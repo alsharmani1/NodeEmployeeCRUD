@@ -15,7 +15,7 @@ app.use(express.static(__dirname + '/public'));
 // Routes
 app.use(employeeRoute);
 // Mongo connect
+mongoose.Promise = Promise;
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true }); 
-
 const PORT = process.env.PORT || 3000;
 app.listen(PORT);
