@@ -5,7 +5,7 @@ list is all bootstrap.
 
 Functionality:
 
-This apps main functions are to add, edit, and delete employees.
+This app's main functions are to add, edit, and delete employees.
 Input parameters are name, email, phone, and city.
 In case of an error user will be redirecting to the error
 page with the approriate message.
