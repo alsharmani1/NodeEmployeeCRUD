@@ -46,7 +46,10 @@ router.post('/submit', async (req, res) => {
          try{
              res.redirect('/');
          } catch(err){
-             res.json(err)
+            res.render('error', {
+                title: "Error Page",
+                message: "There was a problem adding employee. Please try again later!"
+            });
          }
     } else {
         // Update existing record
@@ -64,7 +67,10 @@ router.post('/submit', async (req, res) => {
 
             res.redirect('/');
         } catch (err) {
-            res.json(err)
+            res.render('error', {
+                title: "Error Page",
+                message: "There was a problem updating employee. Please try again later!"
+            });
         }
     }
      
