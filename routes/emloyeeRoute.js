@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
         });
     } catch (err) { 
         res.render('error', {
-            title: "Error Page",
+            title: "Error!",
             message: "There was a problem getting the employee list. Please try again later!"
         });
      }
@@ -47,7 +47,7 @@ router.post('/submit', async (req, res) => {
              res.redirect('/');
          } catch(err){
             res.render('error', {
-                title: "Error Page",
+                title: "Error!",
                 message: "There was a problem adding employee. Please try again later!"
             });
          }
@@ -68,7 +68,7 @@ router.post('/submit', async (req, res) => {
             res.redirect('/');
         } catch (err) {
             res.render('error', {
-                title: "Error Page",
+                title: "Error!",
                 message: "There was a problem updating employee. Please try again later!"
             });
         }
@@ -95,7 +95,7 @@ router.get('/delete/:id', async (req, res) => {
         res.redirect('/');
     } catch(err) {
         res.render('error', {
-            title: "Error Page",
+            title: "Error!",
             message: "There was a deleting the employee. Please try again later!"
         });
     }
