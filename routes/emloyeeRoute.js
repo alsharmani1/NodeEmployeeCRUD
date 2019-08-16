@@ -3,22 +3,20 @@ const router = express.Router();
 const Employee = require('../models/Employee');
 
 // Employee list
-router.get('/', (req, res) => {
-    try { 
-        Employee.find((err, items) => {
-            if(!err) {
+router.get('/', async (req, res) => {
+        await Employee.find((err, items) => {
+            try {
                 res.render('employeeList', { 
                     title: 'Employee List',
                     list: items
                 }); 
-            } 
-        });
-    } catch (err) { 
-        res.render('error', {
-            title: "Error!",
-            message: "There was a problem getting the employee list. Please try again later!"
-        });
-     }
+            } catch (err) { 
+            res.render('error', {
+                title: "Error!",
+                message: "There was a problem getting the employee list. Please try again later!"
+            });
+        }
+    });
 });
 
 // Employee form
